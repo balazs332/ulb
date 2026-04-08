@@ -1,66 +1,157 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ULB</title>
-  <style>
-    :root{
-      --brand-blue:#002570;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ULB</title>
 
-    *{
-      box-sizing:border-box;
-    }
+<style>
+:root{
+ --brand-blue:#002570;
+ --panel-bg:rgba(255,255,255,0.10);
+ --panel-border:rgba(255,255,255,0.18);
+ --text:#ffffff;
+}
 
-    html, body{
-      margin:0;
-      width:100%;
-      min-height:100%;
-      background:var(--brand-blue);
-    }
+*{box-sizing:border-box;}
 
-    body{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
-    }
+html,body{
+ margin:0;
+ min-height:100%;
+ background:var(--brand-blue);
+ font-family:Arial, Helvetica, sans-serif;
+}
 
-    .wrap{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
+.screen{
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:24px;
+}
 
-    .logo{
-      display:block;
-      width:min(78vw, 520px);
-      height:auto;
-      max-width:100%;
-    }
+.login-card{
+ width:min(92vw,420px);
+ background:var(--panel-bg);
+ border:1px solid var(--panel-border);
+ border-radius:18px;
+ padding:26px;
+ backdrop-filter:blur(10px);
+ text-align:center;
+}
 
-    @media (max-width: 480px){
-      body{
-        padding:20px;
-      }
+.logo-top{
+ width:140px;
+ margin:0 auto 18px auto;
+ display:block;
+}
 
-      .logo{
-        width:min(82vw, 360px);
-      }
-    }
-  </style>
+h1{
+ margin:0 0 18px 0;
+ color:white;
+ font-size:22px;
+}
+
+input{
+ width:100%;
+ padding:14px;
+ margin-bottom:12px;
+ border-radius:10px;
+ border:1px solid rgba(255,255,255,0.25);
+ background:rgba(255,255,255,0.12);
+ color:white;
+ font-size:15px;
+}
+
+button{
+ width:100%;
+ padding:14px;
+ border-radius:10px;
+ border:none;
+ background:white;
+ color:#002570;
+ font-weight:bold;
+ cursor:pointer;
+}
+
+.error{
+ margin-top:10px;
+ color:#ffdede;
+ font-size:14px;
+ min-height:18px;
+}
+
+.hidden{
+ display:none;
+}
+
+.logo-main{
+ width:min(80vw,520px);
+}
+</style>
+
 </head>
+
 <body>
-  <div class="wrap">
-    <img
-      src="logo.PNG"
-      alt="ULB"
-      class="logo"
-      onerror="this.onerror=null;this.src='logo.png';"
-    />
-  </div>
+
+<section id="loginScreen" class="screen">
+
+<div class="login-card">
+
+<img src="logo.PNG" class="logo-top" onerror="this.onerror=null;this.src='logo.png';">
+
+<h1>Belépés</h1>
+
+<form id="loginForm">
+
+<input id="username" placeholder="Felhasználónév" required>
+<input id="password" type="password" placeholder="Jelszó" required>
+
+<button>Belépés</button>
+
+<div id="error" class="error"></div>
+
+</form>
+
+</div>
+
+</section>
+
+
+<section id="contentScreen" class="screen hidden">
+
+<img src="logo.PNG" class="logo-main" onerror="this.onerror=null;this.src='logo.png';">
+
+</section>
+
+
+<script>
+
+const USER="admin";
+const PASS="ulb2026";
+
+document.getElementById("loginForm").addEventListener("submit",e=>{
+
+e.preventDefault();
+
+let u=document.getElementById("username").value;
+let p=document.getElementById("password").value;
+
+if(u===USER && p===PASS){
+
+document.getElementById("loginScreen").classList.add("hidden");
+document.getElementById("contentScreen").classList.remove("hidden");
+
+}else{
+
+document.getElementById("error").innerText="Hibás adat";
+
+}
+
+});
+
+</script>
+
+
 </body>
 </html>
