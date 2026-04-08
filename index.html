@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ULB</title>
+  <style>
+    :root{
+      --brand-blue:#002570;
+    }
 
-<title>ULB</title>
+    *{
+      box-sizing:border-box;
+    }
 
-<style>
-:root{
-  --brand-blue:#0b2f6b;
-}
+    html, body{
+      margin:0;
+      width:100%;
+      min-height:100%;
+      background:var(--brand-blue);
+    }
 
-html,body{
-  margin:0;
-  padding:0;
-  height:100%;
-  background:var(--brand-blue);
-}
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
 
-body{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:100vh;
-}
+    .wrap{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
 
-/* responsive logo size */
-.logo{
-  width:clamp(180px, 42vw, 520px);
-  height:auto;
-}
+    .logo{
+      display:block;
+      width:min(78vw, 520px);
+      height:auto;
+      max-width:100%;
+    }
 
-/* subtle fade-in */
-.logo{
-  opacity:0;
-  transform:translateY(10px);
-  animation:fadein 0.9s ease forwards;
-}
+    @media (max-width: 480px){
+      body{
+        padding:20px;
+      }
 
-@keyframes fadein{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-</style>
-
+      .logo{
+        width:min(82vw, 360px);
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<img src="logo.png" alt="ULB" class="logo">
-
+  <div class="wrap">
+    <img
+      src="logo.PNG"
+      alt="ULB"
+      class="logo"
+      onerror="this.onerror=null;this.src='logo.png';"
+    />
+  </div>
 </body>
 </html>
