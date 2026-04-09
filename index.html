@@ -20,8 +20,14 @@ html,body{
  font-family:Arial, Helvetica, sans-serif;
 }
 
-.screen{
+.page{
  min-height:100vh;
+ display:flex;
+ flex-direction:column;
+}
+
+.screen{
+ flex:1;
  display:flex;
  align-items:center;
  justify-content:center;
@@ -79,11 +85,28 @@ button{
  width:min(80vw,520px);
 }
 
+footer{
+ text-align:center;
+ color:white;
+ font-size:12px;
+ padding:18px 10px 22px 10px;
+ opacity:0.9;
+}
+
+@media (max-width:600px){
+ footer{
+  font-size:11px;
+  line-height:1.6;
+ }
+}
+
 </style>
 
 </head>
 
 <body>
+
+<div class="page">
 
 <section id="loginScreen" class="screen">
 
@@ -112,6 +135,13 @@ button{
 <img src="logo.PNG" class="logo-main" onerror="this.onerror=null;this.src='logo.png';">
 
 </section>
+
+
+<footer>
+ULB Kft. &nbsp; I &nbsp; Adószám: 28808749-2-43 &nbsp; I &nbsp; Cégjegyzékszám: 01-09-374943 &nbsp; I &nbsp; IBAN: HU39104040725052697757751004
+</footer>
+
+</div>
 
 
 <script>
