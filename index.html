@@ -89,14 +89,23 @@ footer{
  text-align:center;
  color:white;
  font-size:12px;
- padding:18px 10px 22px 10px;
+ padding:18px 14px 24px 14px;
  opacity:0.9;
+ line-height:1.7;
 }
 
-@media (max-width:600px){
+.sep{
+ opacity:0.75;
+ padding:0 8px;
+}
+
+.nowrap{
+ white-space:nowrap;
+}
+
+@media (max-width:700px){
  footer{
   font-size:11px;
-  line-height:1.6;
  }
 }
 
@@ -138,7 +147,21 @@ footer{
 
 
 <footer>
-ULB Kft. &nbsp; I &nbsp; Adószám: 28808749-2-43 &nbsp; I &nbsp; Cégjegyzékszám: 01-09-374943 &nbsp; I &nbsp; IBAN: HU39104040725052697757751004
+
+<span>ULB Kft.</span>
+<span class="sep">I</span>
+
+<span>Adószám: 28808749-2-43</span>
+<span class="sep">I</span>
+
+<span>Cégjegyzékszám: 01-09-374943</span>
+<span class="sep">I</span>
+
+<span class="nowrap">Cím: 1192 Budapest, Taksony utca 7.</span>
+<span class="sep">I</span>
+
+<span class="nowrap">IBAN: HU39104040725052697757751004</span>
+
 </footer>
 
 </div>
